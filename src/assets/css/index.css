@@ -1,0 +1,17 @@
+.avatar{
+    height: 40px;
+    width: 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: blueviolet;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    justify-content: s;
+}
+.card-name{
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
