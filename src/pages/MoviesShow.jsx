@@ -7,7 +7,7 @@ export default function MoviesShow() {
     <>
     <div className="container">
         <section className="my-5">
-            <h1>Titolo libro {id}</h1>
+            <h1>Titolo film</h1>
             <p>
                 descrizione:
             </p>
