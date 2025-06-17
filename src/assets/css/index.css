@@ -1,3 +1,6 @@
+body{
+    background-color: #767676;
+}
 .avatar{
     height: 40px;
     width: 40px;
@@ -16,7 +19,18 @@
     text-overflow: ellipsis;
 }
 .card-title {
-    color: #fc2a2a;
+    color: hsl(0, 99%, 56%);
     font-family:'Times New Roman', Times, serif;
     font-size: 27px;
+}
+.card-text{
+    font-size: 15px;
+}
+.container .row{
+    padding-top: 40px;
+}
+.container h1{
+    padding-top: 25px;
+    font-size: 60px;
+    color: #f94141;
 }

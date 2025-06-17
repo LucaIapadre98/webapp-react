@@ -76,7 +76,7 @@ export default function MoviesList (){
     }
     return (
         <div className="container">
-            <div className="row">
+            <div className="row gap-3">
                 {movies.map((movie) => (
                     <div key={movie.id} className="col-2">
                         <Card 

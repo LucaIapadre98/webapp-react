@@ -4,7 +4,7 @@ export default function MoviesIndex() {
   return (
     <>
     <div className="container">
-      <h1>Movies </h1>
+      <h1>Movies List</h1>
       <MoviesList />
     </div>
     </>
