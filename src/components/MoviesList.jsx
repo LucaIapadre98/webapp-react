@@ -59,15 +59,34 @@ const movies = [
 ]
 
 export default function MoviesList (){
+    const renderDescription = (movie) => {
+        return (
+            <>
+                <span className="d-block">
+                    <strong>Regista:</strong> {movie.director}
+                </span>
+                <span className="d-block">
+                    <strong>Genere:</strong> {movie.genre}
+                </span>
+                <span className="d-block">
+                    <strong>Anno di uscita:</strong> {movie.release_year}
+                </span>
+            </>
+        );
+    }
     return (
         <div className="container">
             <div className="row">
-                {movies.map((movie) =>(
-                    <div className="col-2">
-                        <Card title={movie.title} abstract={movie.abstract} link={"/movies/1"}></Card>
+                {movies.map((movie) => (
+                    <div key={movie.id} className="col-2">
+                        <Card 
+                            title={movie.title} 
+                            description={renderDescription(movie)} 
+                            link={`/movies/${movie.id}`}
+                        ></Card>
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }

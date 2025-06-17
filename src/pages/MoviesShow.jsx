@@ -9,7 +9,7 @@ export default function MoviesShow() {
         <section className="my-5">
             <h1>Titolo film</h1>
             <p>
-                descrizione:
+              descrizione:
             </p>
             <p>vote:</p>
         </section>

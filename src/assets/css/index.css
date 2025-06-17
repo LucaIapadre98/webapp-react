@@ -15,3 +15,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.card-title {
+    color: #fc2a2a;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 27px;
+}
