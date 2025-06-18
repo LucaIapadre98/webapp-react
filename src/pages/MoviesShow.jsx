@@ -3,11 +3,13 @@ import ReviewsList from "../components/ReviewsList";
 
 export default function MoviesShow() {
   const { id } = useParams();
+  
   return (
     <>
     <div className="container">
         <section className="my-5">
             <h1>Titolo film</h1>
+            <img src="" />
             <p>
               descrizione:
             </p>
@@ -17,4 +19,4 @@ export default function MoviesShow() {
     </div>
     </>
   )
-}
+} 

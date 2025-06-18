@@ -8,7 +8,7 @@ const movies = [
         genre: "Science Fiction",
         release_year: 2010,
         abstract: "A skilled thief is given a chance at redemption if he can successfully perform inception.",
-        image: "inception.jpg",
+        image: "http://localhost:5173/img/movies/inception.jpg",
         created_at: "2024-11-29T10:40:13.000Z",
         updated_at: "2025-05-22T10:55:27.000Z"
     },
@@ -19,7 +19,7 @@ const movies = [
         genre: "Crime",
         release_year: 1972,
         abstract: "The story of a powerful Italian-American crime family and their struggles.",
-        image: "interstellar.jpg",
+        image: "http://localhost:5173/img/movies/interstellar.jpg",
         created_at: "2024-11-29T10:40:13.000Z",
         updated_at: "2025-05-22T10:55:27.000Z"
     },
@@ -30,7 +30,7 @@ const movies = [
         genre: "Romance",
         release_year: 1997,
         abstract: "A romantic story set against the tragic sinking of the RMS Titanic.",
-        image: "matrix.jpg",
+        image: "http://localhost:5173/img/movies/matrix.jpg",
         created_at: "2024-11-29T10:40:13.000Z",
         updated_at: "2025-05-22T10:55:27.000Z"
     },
@@ -41,7 +41,7 @@ const movies = [
         genre: "Action",
         release_year: 1999,
         abstract: "A hacker discovers the truth about his reality and his role in the war against its controllers.",
-        image: "the_godfather.jpg",
+        image: "http://localhost:5173/img/movies/the_godfather.jpg",
         created_at: "2024-11-29T10:40:13.000Z",
         updated_at: "2025-05-22T10:55:27.000Z"
     },
@@ -52,7 +52,7 @@ const movies = [
         genre: "Science Fiction",
         release_year: 2014,
         abstract: "A team of explorers travels through a wormhole in space to save humanity.",
-        image: "titanic.jpg",
+        image: "http://localhost:5173/img/movies/titanic.jpg",
         created_at: "2024-11-29T10:40:13.000Z",
         updated_at: "2025-05-22T10:55:27.000Z"
     }
@@ -61,10 +61,7 @@ const movies = [
 export default function MoviesList (){
     const renderDescription = (movie) => {
         return (
-            <>
-                <span className="d-block">
-                    <strong>Regista:</strong> {movie.director}
-                </span>
+            <>  
                 <span className="d-block">
                     <strong>Genere:</strong> {movie.genre}
                 </span>
@@ -81,6 +78,7 @@ export default function MoviesList (){
                     <div key={movie.id} className="col-2">
                         <Card 
                             title={movie.title} 
+                            image={movie.image}
                             description={renderDescription(movie)} 
                             link={`/movies/${movie.id}`}
                         ></Card>

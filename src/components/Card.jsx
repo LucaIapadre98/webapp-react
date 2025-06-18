@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Card ({ 
-    imagePath, 
+    image, 
     title, 
     description,
     link, 
@@ -9,10 +9,10 @@ export default function Card ({
 }) {
     return (
         <div className="card" >
-            {imagePath && <img className="card-image-top" src={imagePath} alt="" />}
+            {image && <img className="card-image-top" src={image} />}
             <div className="card-body">
                 {title && <h4 className="card-title">{title}</h4>}
-                {description && <p className="card-text">{description}</p>}
+                {description && <div className="card-text">{description}</div>}
                 {Link && (
                     <Link to={ link } className="btn btn-primary">
                         {linkText ?? "See More"}
