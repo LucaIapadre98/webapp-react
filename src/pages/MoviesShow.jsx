@@ -1,20 +1,21 @@
 import { useParams } from "react-router-dom";
 import ReviewsList from "../components/ReviewsList";
+import { useEffect, useState } from "react";
+import axios  from "axios";
 
-const movie = {
-  id: 1,
-  title: "Inception",
-  director: "Christopher Nolan",
-  genre: "Science Fiction",
-  release_year: 2010,
-  abstract: "A skilled thief is given a chance at redemption if he can successfully perform inception.",
-  image: "http://localhost:5173/img/movies/inception.jpg",
-  created_at: "2024-11-29T10:40:13.000Z",
-  updated_at: "2025-05-22T10:55:27.000Z"
-}
+const reviewsApiUrl = "http://localhost:3000/reviews";
 
 export default function MoviesShow() {
+  const [review, setReview] = useState([]);
   const { id } = useParams();
+
+  const fetchReviews = () => {
+    axios.get(reviewsApiUrl).then((res) =>{
+      const { review } = res.data;  
+     setReview(review);
+    });
+  };
+  useEffect(fetchReviews, []);
 
   const renderDescription = (movie) => {
     return (

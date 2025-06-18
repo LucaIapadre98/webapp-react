@@ -9,7 +9,7 @@ export default function Card ({
 }) {
     return (
         <div className="card" >
-            {image && <img className="card-image-top" src={image} />}
+            {image && <img className="card-image-top" src={image} alt="" />}
             <div className="card-body">
                 {title && <h4 className="card-title">{title}</h4>}
                 {description && <div className="card-text">{description}</div>}
