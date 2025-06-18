@@ -9,13 +9,13 @@ export default function MoviesShow() {
   const [review, setReview] = useState([]);
   const { id } = useParams();
 
-  const fetchReviews = () => {
+  const fetchReview = () => {
     axios.get(reviewsApiUrl).then((res) =>{
       const { review } = res.data;  
      setReview(review);
     });
   };
-  useEffect(fetchReviews, []);
+  useEffect(fetchReview, []);
 
   const renderDescription = (movie) => {
     return (
