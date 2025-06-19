@@ -19,9 +19,9 @@ export default function MoviesList (){
     const renderDescription = (movie) => {
         return (
             <>  
-                <span className="img">
+                <div className="img">
                     <img src={movie.image} />
-                </span>
+                </div>
                 <span className="d-block">
                     <strong>Genere:</strong> {movie.genre}
                 </span>

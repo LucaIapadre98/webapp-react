@@ -39,10 +39,10 @@ export default function MoviesShow() {
             <div className="container">
               <h1>{movie.title}</h1>
               <div className="row">
-                <div className="col-5">
+                <div className="col-3">
                   <img src={movie.image} />
                 </div>
-                <div className="col-7">
+                <div className="col-9">
                   {renderDescription(movie)}
                 </div>
               </div>
