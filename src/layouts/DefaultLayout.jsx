@@ -5,9 +5,9 @@ export default function DefaultLayout() {
   return (
     <>
         <Header />
-        <main>
+          <main>
             <Outlet></Outlet>
-        </main>
+          </main>
         <footer>
             <div className="container"></div>
         </footer>

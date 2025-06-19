@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
 
-const movieApiUrl = "http://localhost:3000/movies";
+const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies";
 
 export default function MoviesList (){
     const [movies, setMovies] = useState([]);
 
     const fetchMovies = () => {
         axios.get(movieApiUrl).then((res) => {
-            const { movies } = res.data;
-            setMovies(movies);    
+            const { movies} = res.data;
+            console.log(res);
+            setMovies(movies);
         });
     };
     useEffect(fetchMovies, []);
@@ -18,6 +19,9 @@ export default function MoviesList (){
     const renderDescription = (movie) => {
         return (
             <>  
+                <span className="img">
+                    <img src={movie.image} />
+                </span>
                 <span className="d-block">
                     <strong>Genere:</strong> {movie.genre}
                 </span>
@@ -35,10 +39,11 @@ export default function MoviesList (){
                     <div key={movie.id} className="col-2">
                         <Card 
                             title={movie.title} 
-                            img={movie.image}
+                            imagePath={movie.image}
                             link={`/movies/${movie.id}`}
                             description={renderDescription(movie)} 
-                        ></Card>
+                        > 
+                        </Card>
                     </div>
                 ))}
             </div>

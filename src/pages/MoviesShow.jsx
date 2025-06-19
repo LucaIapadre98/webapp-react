@@ -1,21 +1,22 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import ReviewsList from "../components/ReviewsList";
 import { useEffect, useState } from "react";
-import axios  from "axios";
+import axios from "axios";
 
-const reviewsApiUrl = "http://localhost:3000/reviews";
 
 export default function MoviesShow() {
-  const [review, setReview] = useState([]);
   const { id } = useParams();
+  const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
 
-  const fetchReview = () => {
-    axios.get(reviewsApiUrl).then((res) =>{
-      const { review } = res.data;  
-     setReview(review);
-    });
+  const [movie, setMovie] = useState();
+  const fetchmovie = () =>{
+    axios.get(movieApiUrl).then((res) =>{
+      const {movie} = res.data;
+      setMovie(movie);
+    })
   };
-  useEffect(fetchReview, []);
+  useEffect (fetchmovie, []);
+
 
   const renderDescription = (movie) => {
     return (
@@ -32,21 +33,26 @@ export default function MoviesShow() {
   
   return (
     <>
-      <section className="my-5">
-        <div className="container">
-          <h1>{movie.title}</h1>
-          <div className="row">
-            <div className="col-5">
-              <img src={movie.image} />
+      {movie  ? (
+        <>
+          <section className="my-5">
+            <div className="container">
+              <h1>{movie.title}</h1>
+              <div className="row">
+                <div className="col-5">
+                  <img src={movie.image} />
+                </div>
+                <div className="col-7">
+                  {renderDescription(movie)}
+                </div>
+              </div>
             </div>
-            <div className="col-7">
-               {renderDescription(movie)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ReviewsList />
+          </section>
+      <ReviewsList reviews={movie.reviews} />
+        </>
+      ): (
+        <h2>Loading...</h2>
+      )}
     </>
   )
 } 
