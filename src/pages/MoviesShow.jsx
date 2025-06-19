@@ -1,15 +1,16 @@
 import { useParams } from "react-router";
-import ReviewsList from "../components/ReviewsList";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ReviewsList from "../components/ReviewsList";
+import ReviewsForm from "../components/ReviewForm";
 import RatingStars from "../components/RatingStars";
 
 export default function MoviesShow() {
   const { id } = useParams();
   const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
 
-
   const [movie, setMovie] = useState();
+
   const fetchmovie = () =>{
     axios.get(movieApiUrl).then((res) =>{
       const {movie} = res.data;
@@ -32,6 +33,10 @@ export default function MoviesShow() {
         <h5 className="d-block">
           <strong>Descrizione:</strong> {movie.abstract}
         </h5>
+        <h5 className="d-block">
+          <strong>Media recensione: </strong>
+          <RatingStars vote={voteForStars} />
+        </h5>
       </>
     );
   }
@@ -53,15 +58,8 @@ export default function MoviesShow() {
               </div>
             </div>
           </section>
-
           <ReviewsList reviews={movie.reviews} />
-
-          <section className="my-5">
-            <div className="conatiner my-2">
-              <h2>La tua recensione</h2>
-              <p>Scivi la tua recensione...</p>
-            </div>
-          </section>
+          <ReviewsForm idMovie={movie.id}/>
         </>
       ): (
         <h2>Loading...</h2>
