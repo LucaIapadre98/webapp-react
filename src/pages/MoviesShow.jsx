@@ -21,12 +21,15 @@ export default function MoviesShow() {
   const renderDescription = (movie) => {
     return (
       <>  
-        <span className="d-block">
+        <h5 className="d-block">
           <strong>Genere:</strong> {movie.genre}
-        </span>
-        <span className="d-block">
+        </h5>
+        <h5 className="d-block">
           <strong>Anno di uscita:</strong> {movie.release_year}
-        </span>
+        </h5>
+        <h5 className="d-block">
+          <strong>Descrizione:</strong> {movie.abstract}
+        </h5>
       </>
     );
   }
