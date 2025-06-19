@@ -2,7 +2,6 @@ import RatingStars from "./RatingStars";
 
 export default function ReviewsCard ({ review }){
     const voteForStars = Math.ceil(review.vote / 2);
-
     return (
         <div className="d-flex gap-3 py-2 justify-content-between align-items-center border-bottom">
             <div className="avatar">

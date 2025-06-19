@@ -5,20 +5,42 @@ import ReviewsList from "../components/ReviewsList";
 import ReviewsForm from "../components/ReviewForm";
 import RatingStars from "../components/RatingStars";
 
+const formInitialData = {
+  name:"",
+  text:"",
+  vote: 0
+}
+
 export default function MoviesShow() {
   const { id } = useParams();
-  const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
+  const [formData, setFormData] = useState(formInitialData);
+
+  const getMovieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
+  const storeMovieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id + "/reviews";
 
   const [movie, setMovie] = useState();
 
   const fetchmovie = () =>{
-    axios.get(movieApiUrl).then((res) =>{
+    axios.get(getMovieApiUrl).then((res) =>{
       const {movie} = res.data;
       setMovie(movie);
     })
   };
-  useEffect (fetchmovie, []);
 
+  const fetchStoreMovieReview = () => {
+    axios.post(storeMovieApiUrl, formData).then((res) =>{   
+      fetchmovie(); 
+    })
+  }
+
+
+  const handleStoreReviewSubmit = (e) =>{
+    e.preventDefault();
+    setFormData(formInitialData);
+    fetchStoreMovieReview ();
+  };
+
+  useEffect (fetchmovie, []);
 
   const renderDescription = (movie) => {
     const voteForStars = movie.vote ? Math.ceil(movie.vote / 2) : null;
@@ -59,7 +81,10 @@ export default function MoviesShow() {
             </div>
           </section>
           <ReviewsList reviews={movie.reviews} />
-          <ReviewsForm idMovie={movie.id}/>
+          <ReviewsForm 
+          formData={formData}
+          setFormData={setFormData}
+          handleFormSubmit={handleStoreReviewSubmit}/>
         </>
       ): (
         <h2>Loading...</h2>

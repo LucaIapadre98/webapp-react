@@ -1,30 +1,13 @@
-import { useEffect, useState } from "react";
-
-const formInitialData = {
-    name:"",
-    text:"",
-    vote: 0
-}
-
-export default function ReviewsForm ({idMovie}){
-    const [formData, setFormData] = useState(formInitialData);
-
-
-    useEffect(() =>{
-        setFormData({
-            movie_id: idMovie,
-            ...formData,
-        })
-    }, []);
+export default function ReviewsForm ({ 
+    formData, 
+    setFormData,
+    handleFormSubmit,
+}){
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
-    };
-
-    const handleFormSubmit = (e) =>{
-        e.preventDefault();
     };
 
     return (
