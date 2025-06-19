@@ -2,11 +2,12 @@ import { useParams } from "react-router";
 import ReviewsList from "../components/ReviewsList";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import RatingStars from "../components/RatingStars";
 
 export default function MoviesShow() {
   const { id } = useParams();
   const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
+
 
   const [movie, setMovie] = useState();
   const fetchmovie = () =>{
@@ -19,6 +20,7 @@ export default function MoviesShow() {
 
 
   const renderDescription = (movie) => {
+    const voteForStars = movie.vote ? Math.ceil(movie.vote / 2) : null;
     return (
       <>  
         <h5 className="d-block">
@@ -51,7 +53,15 @@ export default function MoviesShow() {
               </div>
             </div>
           </section>
-      <ReviewsList reviews={movie.reviews} />
+
+          <ReviewsList reviews={movie.reviews} />
+
+          <section className="my-5">
+            <div className="conatiner my-2">
+              <h2>La tua recensione</h2>
+              <p>Scivi la tua recensione...</p>
+            </div>
+          </section>
         </>
       ): (
         <h2>Loading...</h2>

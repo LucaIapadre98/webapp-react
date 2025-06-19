@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
+import RatingStars from "./RatingStars";
 
 const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies";
 
