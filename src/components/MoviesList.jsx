@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
-import RatingStars from "./RatingStars";
+import { useLoader } from "../contexts/ContextLoader";
 
 const movieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies";
 
 export default function MoviesList (){
     const [movies, setMovies] = useState([]);
+    const { setIsLoading }  = useLoader();                                                  // DA USELOADER PRENDO LA FUNZIONE SETISLOADING //
 
     const fetchMovies = () => {
+        setIsLoading(true);                                                               // TRUE QUANDO PARTE LA RICHIESTA //
         axios.get(movieApiUrl).then((res) => {
             const { movies} = res.data;
-            console.log(res);
             setMovies(movies);
+            setIsLoading(false);                                                       //FALSE QUANDO ARRIVA LA RISPOSTA //
         });
     };
     useEffect(fetchMovies, []);

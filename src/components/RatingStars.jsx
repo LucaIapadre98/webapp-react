@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarFull} from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarEmpty} from "@fortawesome/free-regular-svg-icons";
 
-export  default function RatingStars ({vote, maxVote= 5 }){
+export  default function RatingStars ({vote, maxVote= 5, id }){
     const renderStars = () => {
         if(!vote) return "Nessun voto";
         const stars = [];

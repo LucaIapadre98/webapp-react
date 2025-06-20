@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewsList from "../components/ReviewsList";
 import ReviewsForm from "../components/ReviewForm";
-import RatingStars from "../components/RatingStars";
+import { useLoader } from "../contexts/ContextLoader";
 
 const formInitialData = {
   name:"",
@@ -13,6 +13,7 @@ const formInitialData = {
 
 export default function MoviesShow() {
   const { id } = useParams();
+  const { setIsLoading } = useLoader();
   const [formData, setFormData] = useState(formInitialData);
 
   const getMovieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
@@ -21,9 +22,12 @@ export default function MoviesShow() {
   const [movie, setMovie] = useState();
 
   const fetchmovie = () =>{
+    setIsLoading(true);
+
     axios.get(getMovieApiUrl).then((res) =>{
       const {movie} = res.data;
       setMovie(movie);
+      setIsLoading(false);
     })
   };
 
@@ -32,7 +36,6 @@ export default function MoviesShow() {
       fetchmovie(); 
     })
   }
-
 
   const handleStoreReviewSubmit = (e) =>{
     e.preventDefault();

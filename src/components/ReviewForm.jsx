@@ -38,6 +38,7 @@ export default function ReviewsForm ({
                         min="1"
                         max="10" 
                         step="1"
+                        required
                         />
                     </div>
                     <div className="col-6">
@@ -45,11 +46,11 @@ export default function ReviewsForm ({
                         <textarea
                         name="text"
                         id="text"
+                        value={formData.text}
                         className="form-control"
                         onChange={handleInputChange}
-                        rows="4"
                         required
-                        >{formData.text}
+                        >
                         </textarea>
                     </div>
                     <div className="col-12">
