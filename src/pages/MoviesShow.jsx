@@ -46,19 +46,21 @@ export default function MoviesShow() {
     const voteForStars = movie.vote ? Math.ceil(movie.vote / 2) : null;
     return (
       <>  
-        <h5 className="d-block">
+        <h6 className="d-block">
+          <strong>Regista:</strong> {movie.director}
+        </h6>
+        <h6 className="d-block">
           <strong>Genere:</strong> {movie.genre}
-        </h5>
-        <h5 className="d-block">
+        </h6>
+        <h6 className="d-block">
           <strong>Anno di uscita:</strong> {movie.release_year}
-        </h5>
-        <h5 className="d-block">
+        </h6>
+        <h6 className="d-block">
           <strong>Descrizione:</strong> {movie.abstract}
-        </h5>
-        <h5 className="d-block">
-          <strong>Media recensione: </strong>
-          <RatingStars vote={voteForStars} />
-        </h5>
+        </h6>
+        <h6 className="d-block">
+          <strong>Uscito a:</strong> {movie.created_at}
+        </h6>
       </>
     );
   }
