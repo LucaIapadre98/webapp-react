@@ -1,7 +1,6 @@
 body{
     background-color: hsl(0, 33%, 98%);
     margin: 0;
-    cursor: pointer;
 }
 .avatar{
     height: 40px;
@@ -35,7 +34,7 @@ body{
     color: #f94141;
 }
 .container-page{
-    padding-left: 100px;
+    text-align: center;
 }
 img{
     max-width: 100%;
@@ -67,9 +66,9 @@ section{
     text-overflow: ellipsis;
     
 }
-.card-text{
-    font-size: 20px;
-    width: 250px;
+.card-description{
+    font-size: 18px;
+    width: 20%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -82,8 +81,14 @@ section{
     flex-direction: column;
 }
 .container-list{
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.container-list .row{
+    justify-content: center;
+    align-items: center;
 }
 .card-text .img-first {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }

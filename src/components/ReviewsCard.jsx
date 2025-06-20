@@ -11,7 +11,7 @@ export default function ReviewsCard ({ review }){
             <div>
                 <RatingStars vote={voteForStars} />
             </div>
-            <div className="card-text">{review.text}</div>
+            <div className="card-description">{review.text}</div>
         </div>
     )
 }
