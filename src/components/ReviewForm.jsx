@@ -1,4 +1,4 @@
-export default function ReviewsForm ({ 
+export default function ReviewsForm ({                                               //FUNZIONI IMPORTATE COME PROPS //
     formData, 
     setFormData,
     handleFormSubmit,
@@ -12,14 +12,14 @@ export default function ReviewsForm ({
 
     return (
         <section className="my-5">
-            <div className="conatiner my-2">
+            <div className="container-form my-2">
                 <h2>La tua recensione</h2>
-                <form className="row" onSubmit={handleFormSubmit}>
+                <form className="card-row" onSubmit={handleFormSubmit}>                               
                     <div className="col-3">
                         <label htmlFor="name" className="form-label">Nome</label>
                         <input 
                         value={formData.name}
-                        onChange={handleInputChange}
+                        onChange={handleInputChange}                                                  
                         type="text" 
                         className="form-control" 
                         id="name" 
@@ -50,11 +50,12 @@ export default function ReviewsForm ({
                         className="form-control"
                         onChange={handleInputChange}
                         required
+                        rows="5"
                         >
                         </textarea>
                     </div>
-                    <div className="col-12">
-                        <button className="btn btn-success">Invio recensione</button>
+                    <div className="col-2 my-4">
+                        <button className="btn btn-primary">Invio recensione</button>
                     </div>
                 </form>
             </div>

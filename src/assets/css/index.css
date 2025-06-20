@@ -1,6 +1,7 @@
 body{
-    background-color: #767676;
+    background-color: hsl(0, 33%, 98%);
     margin: 0;
+    cursor: pointer;
 }
 .avatar{
     height: 40px;
@@ -24,18 +25,65 @@ body{
     font-family:'Times New Roman', Times, serif;
     font-size: 27px;
 }
-.card-text{
-    font-size: 15px;
-}
+
 .container .row{
     padding-top: 40px;
 }
-.container h1{
+.container-page h1{
     padding-top: 25px;
     font-size: 60px;
     color: #f94141;
 }
+.container-page{
+    padding-left: 100px;
+}
 img{
+    max-width: 100%;
+    justify-content: center;
+}
+.container-review h2{
+    font-size: 48px;
+    color: red;
+}
+.container #form-image{
     width: 100%;
 }
-
+.container h1{
+    color: #e62e2e;
+    font-size: 50px;
+}
+section{
+    padding: 50px 20px;
+}
+.form{
+    padding: 0;
+}
+.form .container{
+    max-width: 98%;
+}
+.card-name{
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.card-text{
+    font-size: 20px;
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-title{
+    text-align: center;
+    padding: 0;
+    font-size: 23px;
+}
+.card-row{
+    flex-direction: column;
+}
+.container-list{
+    width: 100%;
+}
+.card-text .img-first {
+    width: 100%;
+}

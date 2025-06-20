@@ -22,7 +22,7 @@ export default function MoviesList (){
     const renderDescription = (movie) => {
         return (
             <>  
-                <div className="img">
+                <div className="img-first">
                     <img src={movie.image} />
                 </div>
                 <span className="d-block">
@@ -36,8 +36,8 @@ export default function MoviesList (){
     };
     
     return (
-        <div className="container">
-            <div className="row gap-3">
+        <div className="container-list">
+            <div className="row gap-2">
                 {movies.map((movie) => (
                     <div key={movie.id} className="col-2">
                         <Card 

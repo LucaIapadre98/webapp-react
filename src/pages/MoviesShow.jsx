@@ -17,7 +17,7 @@ export default function MoviesShow() {
   const [formData, setFormData] = useState(formInitialData);
 
   const getMovieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id;
-  const storeMovieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id + "/reviews";
+  const storeMovieApiUrl = import.meta.env.VITE_BACKEND_API_URL + "/movies/" + id + "/reviews";     // IMPORTO LE CHIAMATE API  COME VARIABILI//
 
   const [movie, setMovie] = useState();
 
@@ -33,14 +33,14 @@ export default function MoviesShow() {
 
   const fetchStoreMovieReview = () => {
     axios.post(storeMovieApiUrl, formData).then((res) =>{   
-      fetchmovie(); 
+      fetchmovie();                                                    //CON LA FETCH RICHIEDO I DATI DEI FILM //
     })
   }
 
-  const handleStoreReviewSubmit = (e) =>{
-    e.preventDefault();
+  const handleStoreReviewSubmit = (e) =>{                        // SUBMIT DEL FORM DELLE RECENSIONI //
+    e.preventDefault();                            
     setFormData(formInitialData);
-    fetchStoreMovieReview ();
+    fetchStoreMovieReview ();                                    // FA LA CHIAMATA PER LE RECENSIONI //
   };
 
   useEffect (fetchmovie, []);
@@ -72,12 +72,12 @@ export default function MoviesShow() {
     <>
       {movie  ? (
         <>
-          <section className="my-5">
+          <section className="form my-5">
             <div className="container">
               <h1>{movie.title}</h1>
               <div className="row">
                 <div className="col-3">
-                  <img src={movie.image} />
+                  <img src={movie.image} id="form-image"/>
                 </div>
                 <div className="col-9">
                   {renderDescription(movie)}

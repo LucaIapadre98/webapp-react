@@ -3,7 +3,7 @@ import ReviewsCard from "./ReviewsCard"
 export default function ReviewsList ({reviews}) {
     return (
         <section>
-            <div className="container my-2">
+            <div className="container-review my-4">
                <h2>Reviews</h2>
             </div>
             {reviews.map((review ) => (
