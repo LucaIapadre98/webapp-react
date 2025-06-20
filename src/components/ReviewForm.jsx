@@ -6,7 +6,7 @@ export default function ReviewsForm ({
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value,                                             //CAMBIAMO IL VALORE QUANDO VIENE ESEGUITO //
         });
     };
 
