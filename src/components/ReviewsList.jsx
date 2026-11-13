@@ -2,13 +2,20 @@ import ReviewsCard from "./ReviewsCard"
 
 export default function ReviewsList ({reviews}) {
     return (
-        <section>
-            <div className="container-review my-4">
-               <h2>Reviews</h2>
+        <section className="reviews-section">
+            <div className="review-section-heading">
+                <p className="section-kicker">Voci dalla platea</p>
+                <h2>Le recensioni</h2>
             </div>
-            {reviews.map((review ) => (
-                <ReviewsCard key={review.id} review={review}/>
-            ))}
+            {reviews.length ? (
+                <div className="review-list">
+                    {reviews.map((review) => (
+                        <ReviewsCard key={review.id} review={review}/>
+                    ))}
+                </div>
+            ) : (
+                <p className="empty-reviews">Ancora nessuna recensione. Lascia la prima.</p>
+            )}
         </section>
     )
 }

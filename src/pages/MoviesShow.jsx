@@ -32,7 +32,7 @@ export default function MoviesShow() {
   };
 
   const fetchStoreMovieReview = () => {
-    axios.post(storeMovieApiUrl, formData).then((res) =>{   
+    axios.post(storeMovieApiUrl, formData).then(() => {
       fetchmovie();                                                    //CON LA FETCH RICHIEDO I DATI DEI FILM //
     })
   }
@@ -46,25 +46,29 @@ export default function MoviesShow() {
   useEffect (fetchmovie, []);
 
   const renderDescription = (movie) => {
-    const voteForStars = movie.vote ? Math.ceil(movie.vote / 2) : null;
     return (
-      <>  
-        <h6 className="d-block">
-          <strong>Regista:</strong> {movie.director}
-        </h6>
-        <h6 className="d-block">
-          <strong>Genere:</strong> {movie.genre}
-        </h6>
-        <h6 className="d-block">
-          <strong>Anno di uscita:</strong> {movie.release_year}
-        </h6>
-        <h6 className="d-block">
-          <strong>Descrizione:</strong> {movie.abstract}
-        </h6>
-        <h6 className="d-block">
-          <strong>Uscito a:</strong> {movie.created_at}
-        </h6>
-      </>
+      <dl className="movie-facts">
+        <div>
+          <dt>Regia</dt>
+          <dd>{movie.director}</dd>
+        </div>
+        <div>
+          <dt>Genere</dt>
+          <dd>{movie.genre}</dd>
+        </div>
+        <div>
+          <dt>Anno di uscita</dt>
+          <dd>{movie.release_year}</dd>
+        </div>
+        <div>
+          <dt>Inserito il</dt>
+          <dd>{movie.created_at}</dd>
+        </div>
+        <div className="fact-description">
+          <dt>Trama</dt>
+          <dd>{movie.abstract}</dd>
+        </div>
+      </dl>
     );
   }
   
@@ -72,16 +76,13 @@ export default function MoviesShow() {
     <>
       {movie  ? (
         <>
-          <section className="form my-5">
-            <div className="container">
-              <h1>{movie.title}</h1>
-              <div className="row">
-                <div className="col-3">
-                  <img src={movie.image} id="form-image"/>
-                </div>
-                <div className="col-9">
+          <section className="movie-detail">
+            <div className="movie-detail-card">
+              <img className="movie-detail-poster" src={movie.image} alt={`${movie.title} - locandina`} />
+              <div className="movie-detail-copy">
+                <p className="section-kicker">Scheda del film</p>
+                <h1>{movie.title}</h1>
                   {renderDescription(movie)}
-                </div>
               </div>
             </div>
           </section>
@@ -92,7 +93,7 @@ export default function MoviesShow() {
           handleFormSubmit={handleStoreReviewSubmit}/>
         </>
       ): (
-        <h2>Loading...</h2>
+        <p className="loading-message">Stiamo preparando la scheda del film...</p>
       )}
     </>
   )

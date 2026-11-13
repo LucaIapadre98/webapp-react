@@ -11,11 +11,14 @@ export default function ReviewsForm ({                                          
     };
 
     return (
-        <section className="my-5">
-            <div className="container-form my-2">
+        <section className="review-form-section">
+            <div className="review-section-heading">
+                <p className="section-kicker">Condividi il tuo parere</p>
                 <h2>La tua recensione</h2>
-                <form className="card-row" onSubmit={handleFormSubmit}>                               
-                    <div className="col-3">
+            </div>
+            <div className="review-form-card">
+                <form className="review-form" onSubmit={handleFormSubmit}>
+                    <div>
                         <label htmlFor="name" className="form-label">Nome</label>
                         <input 
                         value={formData.name}
@@ -26,7 +29,7 @@ export default function ReviewsForm ({                                          
                         name="name"
                         required />
                     </div>
-                    <div className="col-3">
+                    <div>
                         <label htmlFor="vote" className="form-label">Voto</label>
                         <input 
                         value={formData.vote}
@@ -41,7 +44,7 @@ export default function ReviewsForm ({                                          
                         required
                         />
                     </div>
-                    <div className="col-6">
+                    <div className="review-field-message">
                         <label htmlFor="text" className="form-label">Recensione</label>
                         <textarea
                         name="text"
@@ -54,8 +57,8 @@ export default function ReviewsForm ({                                          
                         >
                         </textarea>
                     </div>
-                    <div className="col-2 my-4">
-                        <button className="btn btn-primary">Invio recensione</button>
+                    <div className="review-submit">
+                        <button className="button-accent" type="submit">Invia recensione</button>
                     </div>
                 </form>
             </div>

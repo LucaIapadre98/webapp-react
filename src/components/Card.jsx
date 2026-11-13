@@ -3,22 +3,26 @@ import { Link } from "react-router-dom";
 export default function Card ({ 
     image, 
     title, 
-    description,
     link, 
-    linkText 
+    linkText,
+    genre,
+    releaseYear
 }) {
     return (
-        <div className="card" >
-            {image && <img className="card-image-top" src={image} alt="" />}
+        <article className="card movie-card">
+            {image && <img className="movie-poster" src={image} alt={`${title} - locandina`} />}
             <div className="card-body">
                 {title && <h4 className="card-title">{title}</h4>}
-                {description && <div className="card-text">{description}</div>}
-                {Link && (
-                    <Link to={ link } className="btn btn-primary">
-                        {linkText ?? "See More"}
+                <div className="movie-meta">
+                    {genre && <span>{genre}</span>}
+                    {releaseYear && <span>{releaseYear}</span>}
+                </div>
+                {link && (
+                    <Link to={link} className="movie-card-link">
+                        {linkText ?? "Scopri il film"}
                     </Link>
                 )}
             </div>
-        </div>
+        </article>
     )
 }

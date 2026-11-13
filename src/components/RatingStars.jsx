@@ -10,9 +10,9 @@ export  default function RatingStars ({vote, maxVote= 5}){
         for(let i = 0; i < maxVote; i ++){
             stars.push(
                 i < vote ? (
-                    <FontAwesomeIcon icon={faStarFull}  className="text-warning" />
+                    <FontAwesomeIcon key={i} icon={faStarFull} />
                 ) : (
-                    <FontAwesomeIcon icon={faStarEmpty} className="text-warning" />
+                    <FontAwesomeIcon key={i} icon={faStarEmpty} />
                 )
             );
         };

@@ -11,12 +11,12 @@ export default function DefaultLayout() {
         <Loader show={isLoading} />
         <Header />
 
-        <main>
+        <main className="page-shell">
           <Outlet></Outlet>
         </main>
 
-        <footer>
-            <div className="container"></div>
+        <footer className="site-footer">
+            <p>CineScope · Il cinema è più bello quando se ne parla.</p>
         </footer>
     </>
   );
