@@ -4,6 +4,7 @@ import axios from "axios";
 import ReviewsList from "../components/ReviewsList";
 import ReviewsForm from "../components/ReviewForm";
 import { useLoader } from "../contexts/ContextLoader";
+import { moviePlots } from "../data/moviePlots";
 
 const formInitialData = {
   name:"",
@@ -46,6 +47,8 @@ export default function MoviesShow() {
   useEffect (fetchmovie, []);
 
   const renderDescription = (movie) => {
+    const abstract = moviePlots[movie.id] ?? movie.abstract;
+
     return (
       <dl className="movie-facts">
         <div>
@@ -66,7 +69,7 @@ export default function MoviesShow() {
         </div>
         <div className="fact-description">
           <dt>Trama</dt>
-          <dd>{movie.abstract}</dd>
+          <dd>{abstract}</dd>
         </div>
       </dl>
     );

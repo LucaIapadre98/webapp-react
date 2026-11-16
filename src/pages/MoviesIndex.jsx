@@ -5,8 +5,8 @@ export default function MoviesIndex() {
     <div className="movies-page">
       <div className="page-heading">
         <p className="section-kicker">La collezione</p>
-        <h1 className="section-title">Film da scoprire</h1>
-        <p>Grandi storie, registi indimenticabili e nuovi classici. Trova il prossimo film da aggiungere ai tuoi preferiti.</p>
+        <h1 className="section-title">Catalogo dei film</h1>
+        <p>Consulta le schede, approfondisci i dettagli e leggi le recensioni della collezione.</p>
       </div>
       <MoviesList />
     </div>

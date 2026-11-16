@@ -6,23 +6,31 @@ export default function HomePage() {
     <div className="home-page">
       <section className="home-hero">
         <div className="hero-content">
-          <span className="eyebrow">Il cinema, visto da vicino</span>
+          <span className="eyebrow">Archivio cinematografico</span>
           <h1 className="hero-title">
-            Ogni film<br />lascia una <span>traccia.</span>
+            Il cinema,<br />oltre lo <span>schermo.</span>
           </h1>
           <p className="hero-copy">
-            Scopri storie indimenticabili, esplora il meglio del grande schermo
-            e condividi il tuo punto di vista.
+            Esplora il catalogo, consulta le schede dei film e condividi le tue
+            recensioni.
           </p>
-          <Link className="button-accent" to="/movies">Esplora i film</Link>
+          <Link className="button-accent" to="/movies">Consulta il catalogo</Link>
         </div>
+        <aside className="hero-index" aria-label="Contenuti di CineScope">
+          <p>Esplora CineScope</p>
+          <ol>
+            <li><span>01</span> Catalogo</li>
+            <li><span>02</span> Schede dei film</li>
+            <li><span>03</span> Recensioni</li>
+          </ol>
+        </aside>
       </section>
       <section className="home-intro">
         <div>
           <p className="section-kicker">La collezione</p>
-          <h2 className="section-title">Storie da ricordare</h2>
+          <h2 className="section-title">Selezione di film</h2>
         </div>
-        <Link className="button-accent" to="/movies">Vai alla raccolta</Link>
+        <Link className="button-accent" to="/movies">Vedi tutti i film</Link>
       </section>
       <MoviesList />
     </div>

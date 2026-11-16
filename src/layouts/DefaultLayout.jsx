@@ -16,7 +16,7 @@ export default function DefaultLayout() {
         </main>
 
         <footer className="site-footer">
-            <p>CineScope · Il cinema è più bello quando se ne parla.</p>
+            <p>CineScope · Catalogo e recensioni cinematografiche.</p>
         </footer>
     </>
   );
